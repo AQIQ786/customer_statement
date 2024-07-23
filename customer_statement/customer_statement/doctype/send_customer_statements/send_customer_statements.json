@@ -1,0 +1,252 @@
+{
+ "actions": [],
+ "creation": "2023-03-17 14:21:10.043265",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "section_preferences",
+  "no_letter_head",
+  "letter_head",
+  "column_break_8",
+  "no_ageing",
+  "section_schedule",
+  "html_schedule",
+  "enable_schedule",
+  "schedule",
+  "section_manual",
+  "send_html",
+  "from_date_for_all_customers",
+  "to_date_for_all_customers",
+  "send_customer_statements",
+  "enqueue_sending_statements",
+  "column_break_14",
+  "preview_html",
+  "customer",
+  "from_date",
+  "to_date",
+  "preview",
+  "send_email",
+  "section_break_24",
+  "email_template",
+  "invitation_message",
+  "section_recipient",
+  "get_customer_emails",
+  "recipients"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_preferences",
+   "fieldtype": "Section Break",
+   "label": "Preferences"
+  },
+  {
+   "default": "0",
+   "description": "Check this box to hide the Letterhead. If unchecked, your company's default letterhead will be used, or the letterhead defined below",
+   "fieldname": "no_letter_head",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "No Letter Head"
+  },
+  {
+   "depends_on": "eval: doc.no_letter_head==0",
+   "fieldname": "letter_head",
+   "fieldtype": "Link",
+   "label": "Letter Head",
+   "options": "Letter Head"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Check this box to hide the Ageing/Accounts Receivable Summary table shown below the statement",
+   "fieldname": "no_ageing",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "No Ageing Summary"
+  },
+  {
+   "fieldname": "section_schedule",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Scheduled Sending"
+  },
+  {
+   "fieldname": "html_schedule",
+   "fieldtype": "HTML",
+   "options": "<p class=\"help-box small text-muted\"> Feature coming soon </p>"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_schedule",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Enable Scheduled Sending"
+  },
+  {
+   "depends_on": "eval: doc.enable_schedule==1",
+   "fieldname": "schedule",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Schedule",
+   "options": "Last day of calendar month\nEvery 25th day of the month"
+  },
+  {
+   "fieldname": "section_manual",
+   "fieldtype": "Section Break",
+   "label": "Send Customer Statement Mail Manually"
+  },
+  {
+   "fieldname": "send_html",
+   "fieldtype": "HTML",
+   "options": "<p class=\"help-box small text-muted\"> Send all Customer Statements, From Start Date till given To Date</p>"
+  },
+  {
+   "fieldname": "from_date_for_all_customers",
+   "fieldtype": "Date",
+   "label": "From Date For All Customers"
+  },
+  {
+   "default": "Today",
+   "fieldname": "to_date_for_all_customers",
+   "fieldtype": "Date",
+   "label": "To Date For All Customers"
+  },
+  {
+   "fieldname": "send_customer_statements",
+   "fieldtype": "Button",
+   "label": "Send All Customer Statements"
+  },
+  {
+   "fieldname": "enqueue_sending_statements",
+   "fieldtype": "Button",
+   "label": "Enqueue Sending Statements"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "preview_html",
+   "fieldtype": "HTML",
+   "options": "<p class=\"help-box small text-muted\">Preview or Print Customer Statement for Single Customer:</p>"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "Button",
+   "label": "Preview"
+  },
+  {
+   "fieldname": "send_email",
+   "fieldtype": "Button",
+   "label": "Send Email"
+  },
+  {
+   "fieldname": "section_recipient",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Recipients Preview"
+  },
+  {
+   "fieldname": "get_customer_emails",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Refresh Customer Preview"
+  },
+  {
+   "description": "The list of active customers below shows who will receive statements when this utility is run. You can tick the \"Disable Sending of Customer Statements\" checkbox on the Customer record to skip sending Statements to a particular customer",
+   "fieldname": "recipients",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Customers",
+   "options": "Send Customer Statements Email"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "email_template",
+   "fieldtype": "Link",
+   "label": "Email Template",
+   "options": "Email Template",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invitation_message",
+   "fieldtype": "Text Editor",
+   "label": "Invitation Message"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-03-27 16:35:39.721814",
+ "modified_by": "Administrator",
+ "module": "Customer Statement",
+ "name": "Send Customer Statements",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
